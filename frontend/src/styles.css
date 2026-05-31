@@ -1,0 +1,367 @@
+:root {
+  --bg: #f4f6f5;
+  --card: #ffffff;
+  --ink: #1c2b27;
+  --muted: #7c8a85;
+  --line: #e3e8e6;
+  --green: #1f7a5a;
+  --green-soft: #e7f3ee;
+  --amber: #b9791c;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+button { cursor: pointer; font-family: inherit; }
+select, textarea, input { font-family: inherit; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.app {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+/* Шапка */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 32px;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+}
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo-mark {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: var(--green);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; font-weight: 700;
+}
+.logo-title { font-size: 18px; font-weight: 700; letter-spacing: .3px; }
+.logo-sub { font-size: 12px; color: var(--muted); }
+.header-right { display: flex; align-items: center; gap: 14px; }
+.role-badge {
+  font-size: 13px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Контейнер / типографика */
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  animation: fadeIn .3s ease;
+}
+.h1 { font-size: 30px; margin: 0 0 6px; }
+.h2 { font-size: 22px; margin: 0 0 16px; }
+.h3 {
+  font-size: 15px;
+  margin: 22px 0 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+.lead { color: var(--muted); margin: 0 0 28px; }
+.muted { color: var(--muted); font-size: 14px; }
+
+/* Выбор роли */
+.role-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+.role-card {
+  text-align: left;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.role-card-title { font-size: 18px; font-weight: 700; }
+.role-card-desc { font-size: 13px; color: var(--muted); line-height: 1.5; flex: 1; }
+.role-card-arrow { color: var(--green); font-weight: 700; font-size: 14px; }
+
+/* Вкладки */
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+.tab {
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  font-size: 15px;
+  color: var(--muted);
+  border-bottom: 2px solid transparent;
+}
+.tab.active {
+  color: var(--green);
+  border-bottom: 2px solid var(--green);
+  font-weight: 700;
+}
+
+/* Карточки */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.stack { display: flex; flex-direction: column; }
+
+/* Формы */
+.form-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  flex: 1;
+  min-width: 200px;
+}
+.input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  font-size: 14px;
+  background: #fff;
+}
+.textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  font-size: 14px;
+  resize: vertical;
+}
+
+/* Кнопки */
+.btn-primary {
+  background: var(--green);
+  color: #fff;
+  border: none;
+  padding: 11px 22px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+}
+.btn-secondary {
+  background: var(--green-soft);
+  color: var(--green);
+  border: 1px solid var(--green);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.btn-ghost {
+  background: none;
+  border: 1px solid var(--line);
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--ink);
+}
+.btn-danger {
+  background: #fff;
+  border: 1px solid #d8a4a4;
+  color: #b04444;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.btn-danger:hover {
+  background: #fbe9e9;
+}
+
+/* Группа кнопок в одной строке (изменить / удалить) */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Сообщение об ошибке в форме */
+.err-note {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #fbe9e9;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #b04444;
+}
+
+/* Сетка приёма */
+.grid-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 8px 0 10px;
+}
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.slot {
+  padding: 12px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 15px;
+  font-weight: 700;
+}
+.slot-state { font-size: 11px; font-weight: 400; color: var(--muted); }
+.slot.busy {
+  background: #f7f2f2;
+  color: var(--muted);
+  cursor: not-allowed;
+  border-color: #eee;
+}
+.slot.selected {
+  border-color: var(--green);
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+/* Прочее */
+.note {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: var(--green-soft);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--green);
+}
+.ok-inline { margin-left: 12px; color: var(--green); font-size: 13px; }
+.cache-hit { color: var(--green); font-weight: 700; }
+.cache-miss { color: var(--amber); font-weight: 700; }
+
+.pet-head { display: flex; justify-content: space-between; align-items: center; }
+.tag { font-size: 13px; color: var(--muted); }
+
+.record-row {
+  display: flex;
+  gap: 16px;
+  padding: 8px 0;
+  font-size: 14px;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.record-date { color: var(--muted); min-width: 90px; }
+.record-type { font-weight: 700; min-width: 130px; }
+
+.appt-row { display: flex; justify-content: space-between; align-items: center; }
+.appt-title { font-size: 17px; font-weight: 700; }
+.status-tag {
+  font-size: 13px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: var(--green-soft);
+  color: var(--green);
+}
+.lab-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+/* Блок развёрнутой медкарты внутри карточки приёма */
+.history-block {
+  margin-top: 14px;
+  padding: 16px 18px;
+  background: #fafcfb;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+/* Статус инфраструктуры на админ-панели */
+.status-bar {
+  padding: 10px 14px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+.status-ok { color: var(--green); font-weight: 700; }
+.status-err { color: #b04444; font-weight: 700; }
+
+/* Мониторинг */
+.metric-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 8px;
+}
+.metric {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+}
+.metric-val { font-size: 28px; font-weight: 700; color: var(--green); }
+.metric-lab { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+.event-row {
+  display: flex;
+  gap: 12px;
+  padding: 9px 0;
+  font-size: 13px;
+  border-bottom: 1px solid var(--line);
+  align-items: center;
+  flex-wrap: wrap;
+}
+.topic-tag {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: var(--green-soft);
+  color: var(--green);
+  font-weight: 700;
+}
+.event-payload {
+  color: var(--muted);
+  font-family: monospace;
+  font-size: 12px;
+}

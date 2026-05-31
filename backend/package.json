@@ -1,0 +1,17 @@
+{
+  "name": "vetclinic-backend",
+  "version": "1.0.0",
+  "description": "Backend ИС ветеринарной клиники (Express + Kafka + Redis + SQLite)",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "ioredis": "^5.4.1",
+    "kafkajs": "^2.2.4"
+  }
+}
